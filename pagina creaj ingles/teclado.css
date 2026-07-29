@@ -28,49 +28,71 @@ h1,h2,h3,h4{
 }
 
 
+
 /*====================================
 ESTRELLAS
 ====================================*/
 
+
 .estrellas{
+
     position:fixed;
     inset:0;
+
     overflow:hidden;
+
     pointer-events:none;
+
     z-index:-1;
+
 }
+
 
 
 .estrella{
+
     position:absolute;
+
     background:white;
+
     border-radius:50%;
+
     box-shadow:0 0 10px white;
+
     animation:caer linear infinite;
+
 }
+
 
 
 @keyframes caer{
 
     0%{
-        transform:translateY(-100px);
+        transform:translateY(-120px);
         opacity:0;
     }
+
 
     20%{
         opacity:1;
     }
 
+
     80%{
         opacity:1;
     }
 
+
     100%{
+
         transform:translateY(100vh);
+
         opacity:0;
+
     }
 
 }
+
 
 
 /*====================================
@@ -79,67 +101,97 @@ HEADER
 
 
 .header{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
 
     padding:15px 40px;
 
+
     background:rgba(24,35,133,.92);
+
     backdrop-filter:blur(12px);
 
-    border-bottom:1px solid rgba(255,255,255,.2);
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
 }
 
 
 
+
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:15px;
+
 }
 
 
 
 .logo img{
+
     width:65px;
+
     height:65px;
 
     border-radius:50%;
+
     border:2px solid white;
 
     transition:.3s;
+
 }
 
 
 
 .logo img:hover{
+
     transform:scale(1.08) rotate(5deg);
+
 }
 
 
 
 .logo-texto h1{
+
     font-size:28px;
+
 }
 
 
 
 .logo-texto span{
+
     color:#dbeafe;
+
     font-size:14px;
+
 }
 
 
 
 
 .menu{
+
     display:flex;
+
     gap:15px;
+
 }
 
 
@@ -147,6 +199,7 @@ HEADER
 .menu a{
 
     color:white;
+
     text-decoration:none;
 
     padding:10px 18px;
@@ -163,35 +216,50 @@ HEADER
 .menu .activo{
 
     background:#3b82f6;
+
     transform:translateY(-3px);
 
 }
 
 
 
+
 /*====================================
-TITULO
+HERO
 ====================================*/
 
 
-.cabeza{
+.hero{
+
+    padding:80px 10%;
 
     text-align:center;
-    padding:70px 20px 40px;
 
 }
 
 
 
-.titulo{
+.hero-texto{
 
-    font-size:50px;
+    max-width:900px;
+
+    margin:auto;
 
 }
 
 
 
-.titulo i{
+.hero h1{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.hero h1 i{
 
     color:#3b82f6;
 
@@ -199,88 +267,100 @@ TITULO
 
 
 
-/*====================================
-SEPARADOR
-====================================*/
+.hero p{
 
+    font-size:19px;
 
-.separacion{
-
-    width:80%;
-    height:2px;
-
-    margin:auto;
-
-    background:#3b82f6;
+    color:#e5e7eb;
 
 }
 
 
 
+
+
 /*====================================
-CONTACTOS
+TECLADO BRAILLE
 ====================================*/
 
 
-.contenido,
-.contenido2{
+.teclado{
 
-    padding:60px 10%;
-
-}
-
-
-
-.contenido{
+    padding:70px 10%;
 
     background:rgba(13,29,49,.85);
 
-}
-
-
-
-.contenido2{
-
-    background:#192335;
+    text-align:center;
 
 }
 
 
 
+.teclado h2{
 
-.fila{
+    font-size:35px;
 
-    max-width:1100px;
+    margin-bottom:15px;
 
-    margin:auto;
+}
 
-    display:flex;
 
-    align-items:center;
+
+.teclado p{
+
+    font-size:18px;
+
+    color:#ddd;
+
+}
+
+
+
+
+.contenedor{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,140px);
+
+    gap:20px;
 
     justify-content:center;
 
-    gap:50px;
+    margin:40px auto;
 
 }
 
 
 
 
+.boton{
 
-.imagen img{
+    width:140px;
 
-    width:220px;
+    height:140px;
 
-    height:220px;
-
-    object-fit:cover;
 
     border-radius:50%;
 
-    border:4px solid #3b82f6;
 
-    box-shadow:0 15px 30px rgba(0,0,0,.4);
+    border:none;
+
+
+    background:#0d1d31;
+
+
+    color:white;
+
+
+    font-size:35px;
+
+
+    cursor:pointer;
+
+
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+
 
     transition:.3s;
 
@@ -288,9 +368,21 @@ CONTACTOS
 
 
 
-.imagen img:hover{
+.boton:hover{
 
-    transform:scale(1.05);
+    transform:scale(1.08);
+
+    background:#2563eb;
+
+}
+
+
+
+.boton.activo{
+
+    background:#3b82f6;
+
+    color:white;
 
 }
 
@@ -298,46 +390,141 @@ CONTACTOS
 
 
 
-.datos{
+/*====================================
+CONTROLES
+====================================*/
 
-    background:#0d1d31;
 
-    padding:35px;
+.panel{
 
-    border-radius:20px;
+    margin-top:40px;
 
-    width:450px;
+}
 
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+
+.control{
+
+    padding:14px 25px;
+
+    margin:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+
+    background:#3b82f6;
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+}
+
+
+
+.control:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-3px);
 
 }
 
 
 
 
+.contraste{
 
-.datos p{
+    background:#22c55e;
 
-    font-size:18px;
+}
 
-    margin-bottom:15px;
 
-    color:#f1f5f9;
+
+.contraste:hover{
+
+    background:#16a34a;
 
 }
 
 
 
 
+#texto{
 
-.datos i{
+    margin:35px auto;
 
-    color:#3b82f6;
 
-    width:30px;
+    width:70%;
+
+
+    min-height:60px;
+
+
+    padding:20px;
+
+
+    border-radius:15px;
+
+
+    background:#030912;
+
+
+    font-size:32px;
+
+
+    color:white;
+
+
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
 
 }
 
+
+
+
+/*====================================
+EXPLICACIÓN
+====================================*/
+
+
+.explicacion{
+
+    padding:80px 15%;
+
+    text-align:center;
+
+}
+
+
+
+.explicacion h2{
+
+    font-size:35px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.explicacion p{
+
+    font-size:19px;
+
+    color:#e5e7eb;
+
+}
 
 
 
@@ -391,8 +578,6 @@ FOOTER
 
 .footer-links h4{
 
-    font-size:20px;
-
     margin-bottom:20px;
 
     padding-bottom:10px;
@@ -432,122 +617,71 @@ FOOTER
 
 
 .footer-links a:hover{
-
     color:#66d1ff;
-
     padding-left:5px;
-
 }
-
-
-
-/* Redes */
-
-
 .social-link{
-
     display:flex;
-
     gap:12px;
-
 }
-
-
-
 .social-link a{
-
     width:42px;
-
     height:42px;
-
     display:flex;
-
+    justify-content:center;
     align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
     background:#0d1d31;
-
     color:white;
-
+    border-radius:50%;
     transition:.3s;
-
 }
-
-
-
 .social-link a:hover{
-
     background:#3b82f6;
-
     transform:translateY(-5px);
-
 }
-
-
-
 .footer-copy{
-
     text-align:center;
-
     margin-top:40px;
-
     color:#aaa;
-
 }
-
-
-
-/*====================================
-RESPONSIVE
-====================================*/
-
-
+.alto{
+    background:black !important;
+    color:yellow !important;
+}
+.alto .boton{
+    background:black;
+    border:2px solid yellow;
+    color:yellow;
+}
+.alto #texto{
+    background:black;
+    color:yellow;
+}
 @media(max-width:900px){
-
-
 .header{
-
     flex-direction:column;
-
     gap:20px;
-
 }
-
-
 .menu{
-
     flex-wrap:wrap;
-
     justify-content:center;
-
+}
+.hero h1{
+    font-size:35px;
+}
+.boton{
+    width:110px;   
+    height:110px;
 }
 
-
-
-.fila{
-
-    flex-direction:column;
-
-    text-align:center;
-
+.contenedor{
+    grid-template-columns:repeat(2,110px);
 }
-
-
-.datos{
+#texto{
     width:90%;
 }
-.titulo{
-    font-size:38px;
-}
-.imagen img{
-    width:180px;
-    height:180px;
-}
 .footer-row{
-    gap:40px;
     justify-content:center;
+    gap:40px;
 }
 }

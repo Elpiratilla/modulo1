@@ -1,0 +1,128 @@
+body{
+    margin:  0;
+    font-family: "poppins", sans-serif;
+    font-weight: 500;
+    background-color: rgb(25, 35, 53)
+}
+h1 {
+    font-weight: 600;
+}
+header{
+    background-color:rgb(24, 35, 133);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.logo h1{
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 20px;
+}
+nav a {
+    color: white;
+    margin-left: 30px;
+    font-size: 18px; 
+    text-decoration: none;
+}
+nav a:hover {
+text-decoration:  underline;
+}
+.titulo{
+    color: white;
+    font-size: 42px;
+    font-weight: 600;
+    text-align: center;
+    margin: 40px 0;
+}
+.lista{
+    list-style-type: disc;
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+    padding-left: 20px ;
+    margin: 20px 0 ;
+}
+.lista li{
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+.fila{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: auto;
+    justify-content: flex-end;
+}
+.contenido{
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    padding: 60px 0;
+    text-align: justify;
+    background-color: rgba(13, 29, 49, 0.9);
+}
+.texto{
+    width: 55%;
+    padding: 25px;
+}
+.parrafo{
+    font-size: 17px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    line-height: 1.8;
+    hyphens: auto;
+    margin: 0;
+}
+.antesfila{
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.estrellas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.estrella {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+    animation: caer linear infinite;
+}
+
+@keyframes caer {
+    0% { transform: translateY(-50px); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
