@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzon de tareas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="estilo.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">Buzon<span>.</span></div>
+    <div id="whoami"></div>
+  </header>
+
+  <section id="authView" class="card">
+    <div class="tabs">
+      <button id="tabLogin" class="active" type="button">Entrar</button>
+      <button id="tabRegister" type="button">Registrarme</button>
+    </div>
+
+    <div class="error-msg" id="authError"></div>
+
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginEmail">Correo</label>
+        <input id="loginEmail" type="email" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="loginPassword">Contraseña</label>
+        <input id="loginPassword" type="password" required autocomplete="current-password">
+      </div>
+      <button class="primary-btn" type="submit">Entrar</button>
+    </form>
+
+    <form id="registerForm" class="hidden">
+      <div class="field">
+        <label for="regName">Nombre</label>
+        <input id="regName" type="text" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="regEmail">Correo</label>
+        <input id="regEmail" type="email" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="regPassword">Contraseña</label>
+        <input id="regPassword" type="password" required minlength="6" autocomplete="new-password">
+      </div>
+      <button class="primary-btn" type="submit">Crear cuenta</button>
+    </form>
+  </section>
+
+  <section id="appView" class="hidden">
+    <div class="log-header">
+      <h2>Tu bitácora</h2>
+    </div>
+
+    <form class="add-row" id="addForm">
+      <input id="newTitle" type="text" placeholder="Nueva entrada…" required>
+      <button type="submit">Añadir</button>
+    </form>
+
+    <ul class="entries" id="entriesList"></ul>
+  </section>
+
+</div>
+
+<script src="funcion.js"></script>
+</body>
+</html>

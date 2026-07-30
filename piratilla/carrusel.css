@@ -1,0 +1,90 @@
+/* RESET BASICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.slider {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* NAVEGACION (LOS NUMEROS) */
+.slider-nav a {
+    text-align: center;
+    margin-bottom: 10px;
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 12px;
+    background-color: #141416;
+    color: #f2ede6;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    position: relative;
+    transition: background .15s ease;
+}
+
+.slider-nav a:hover {
+    background: #c1443c;
+}
+
+/* CONTENEDOR DE SLIDES */
+.slides {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+/* CADA SLIDE */
+.slides > div {
+    width: 100%;
+    flex: 0 0 100%;
+}
+
+.slides img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    border: 3px solid #141416;
+}
+
+/* FUNCIONAMIENTO CON :target */
+#Imagen1:target ~ .slides-todo .slides {
+    transform: translateX(0%);
+}
+
+#Imagen2:target ~ .slides-todo .slides {
+    transform: translateX(-100%);
+}
+
+#Imagen3:target ~ .slides-todo .slides {
+    transform: translateX(-200%);
+}
+
+#Imagen4:target ~ .slides-todo .slides {
+    transform: translateX(-300%);
+}
+
+#Imagen5:target ~ .slides-todo .slides {
+    transform: translateX(-400%);
+}
+
+/* OPCIONAL: PRIMER SLIDE POR DEFECTO */
+.slide {
+    transform: translateX(0%);
+}

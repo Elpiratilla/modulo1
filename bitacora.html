@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitácora — Registro, login y tareas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;
+    --paper:#F6F1E7;
+    --paper-2:#EDE6D6;
+    --rust:#B5533C;
+    --sage:#6B8F71;
+    --line:#D8D2C4;
+    --danger:#A33B2E;
+    --radius:2px;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      linear-gradient(180deg, rgba(27,36,48,0.03), rgba(27,36,48,0) 200px),
+      var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(27,36,48,0.035) 28px),
+      linear-gradient(180deg, rgba(27,36,48,0.03), rgba(27,36,48,0) 200px);
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:48px 20px;
+  }
+
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--rust);
+    font-weight:600;
+  }
+
+  h1, h2, .brand{
+    font-family:'Fraunces', serif;
+  }
+
+  /* ---------- Encabezado ---------- */
+  .wrap{ width:100%; max-width:640px; }
+
+  header.top{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:28px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:14px;
+  }
+
+  .brand{
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:-.01em;
+  }
+
+  .brand span{ color:var(--rust); }
+
+  #whoami{
+    font-size:13px;
+    color:#5b5648;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  #whoami button{
+    background:none;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    padding:6px 12px;
+    font-size:12px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    cursor:pointer;
+    border-radius:var(--radius);
+    font-family:'Work Sans', sans-serif;
+  }
+  #whoami button:hover{ background:var(--ink); color:var(--paper); }
+
+  /* ---------- Tarjeta tipo pasaporte para auth ---------- */
+  .card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 32px;
+    box-shadow: 4px 4px 0 rgba(27,36,48,0.06);
+    position:relative;
+  }
+
+  .card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:4px;
+    background: repeating-linear-gradient(90deg, var(--rust) 0 14px, transparent 14px 20px);
+  }
+
+  .tabs{
+    display:flex;
+    gap:0;
+    margin-bottom:26px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .tabs button{
+    flex:1;
+    background:none;
+    border:none;
+    font-family:'Fraunces', serif;
+    font-size:17px;
+    font-style:italic;
+    color:#8a8371;
+    padding:8px 0 12px;
+    cursor:pointer;
+    position:relative;
+  }
+
+  .tabs button.active{ color:var(--ink); font-weight:600; font-style:normal; }
+  .tabs button.active::after{
+    content:"";
+    position:absolute;
+    bottom:-1px; left:0; right:0;
+    height:2px;
+    background:var(--rust);
+  }
+
+  form{ display:flex; flex-direction:column; gap:16px; }
+
+  label{
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#5b5648;
+    margin-bottom:6px;
+    display:block;
+  }
+
+  input{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:var(--radius);
+    font-family:'Work Sans', sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+  input:focus{
+    outline:2px solid var(--sage);
+    outline-offset:1px;
+    border-color:var(--sage);
+  }
+
+  .field{ display:flex; flex-direction:column; }
+
+  .primary-btn{
+    margin-top:6px;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    padding:13px 18px;
+    font-family:'Work Sans', sans-serif;
+    font-size:14px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    font-weight:600;
+    cursor:pointer;
+    border-radius:var(--radius);
+    transition:background .15s ease;
+  }
+  .primary-btn:hover{ background:var(--rust); }
+  .primary-btn:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+
+  .error-msg{
+    background:#f6e3df;
+    border:1px solid var(--danger);
+    color:var(--danger);
+    font-size:13px;
+    padding:10px 12px;
+    border-radius:var(--radius);
+    display:none;
+  }
+  .error-msg.show{ display:block; }
+
+  /* ---------- Bitácora de tareas ---------- */
+  .log-header{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:18px;
+  }
+
+  .log-header h2{
+    font-size:20px;
+    font-weight:600;
+    margin:0;
+  }
+
+  .add-row{
+    display:flex;
+    gap:8px;
+    margin-bottom:24px;
+  }
+  .add-row input{ flex:1; }
+  .add-row button{
+    background:var(--sage);
+    color:var(--paper);
+    border:none;
+    padding:0 18px;
+    font-family:'Work Sans', sans-serif;
+    font-size:13px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    font-weight:600;
+    border-radius:var(--radius);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .add-row button:hover{ filter:brightness(0.93); }
+
+  ul.entries{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .entry{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:14px 16px;
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    position:relative;
+  }
+
+  .stamp{
+    flex:0 0 auto;
+    width:30px; height:30px;
+    border-radius:50%;
+    border:2px solid var(--sage);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-family:'Fraunces', serif;
+    font-size:15px;
+    color:var(--sage);
+    background:transparent;
+    transform:scale(1) rotate(0deg);
+    transition:transform .25s cubic-bezier(.34,1.56,.64,1);
+    user-select:none;
+    margin-top:2px;
+  }
+  .stamp:hover{ transform:scale(1.08); }
+
+  .entry.done .stamp{
+    background:var(--sage);
+    color:var(--paper);
+    transform:scale(1) rotate(-8deg);
+  }
+
+  .entry-body{ flex:1; min-width:0; }
+
+  .entry-title{
+    font-size:15.5px;
+    font-weight:500;
+    word-break:break-word;
+  }
+  .entry.done .entry-title{
+    text-decoration: line-through;
+    color:#8a8371;
+  }
+
+  .entry-desc{
+    font-size:13px;
+    color:#6b6555;
+    margin-top:2px;
+    word-break:break-word;
+  }
+
+  .entry-actions{
+    display:flex;
+    gap:8px;
+    flex:0 0 auto;
+  }
+
+  .icon-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:13px;
+    color:#8a8371;
+    text-decoration:underline;
+    font-family:'Work Sans', sans-serif;
+    padding:2px;
+  }
+  .icon-btn:hover{ color:var(--rust); }
+
+  .empty-state{
+    text-align:center;
+    padding:40px 20px;
+    color:#8a8371;
+    font-size:14px;
+    border:1px dashed var(--line);
+    border-radius:var(--radius);
+  }
+  .empty-state strong{ display:block; color:var(--ink); font-family:'Fraunces', serif; font-size:17px; margin-bottom:4px; }
+
+  .hidden{ display:none !important; }
+
+  footer.note{
+    margin-top:22px;
+    font-size:11.5px;
+    color:#9a927e;
+    text-align:center;
+    line-height:1.5;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .stamp{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">Bitácora<span>.</span></div>
+    <div id="whoami"></div>
+  </header>
+
+  <!-- ===== Vista de autenticación ===== -->
+  <section id="authView" class="card">
+    <div class="tabs">
+      <button id="tabLogin" class="active" type="button">Entrar</button>
+      <button id="tabRegister" type="button">Registrarme</button>
+    </div>
+
+    <div class="error-msg" id="authError"></div>
+
+    <!-- Login -->
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginEmail">Correo</label>
+        <input id="loginEmail" type="email" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="loginPassword">Contraseña</label>
+        <input id="loginPassword" type="password" required autocomplete="current-password">
+      </div>
+      <button class="primary-btn" type="submit">Entrar</button>
+    </form>
+
+    <!-- Registro -->
+    <form id="registerForm" class="hidden">
+      <div class="field">
+        <label for="regName">Nombre</label>
+        <input id="regName" type="text" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="regEmail">Correo</label>
+        <input id="regEmail" type="email" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="regPassword">Contraseña</label>
+        <input id="regPassword" type="password" required minlength="6" autocomplete="new-password">
+      </div>
+      <button class="primary-btn" type="submit">Crear cuenta</button>
+    </form>
+  </section>
+
+  <!-- ===== Vista de tareas (CRUD) ===== -->
+  <section id="appView" class="hidden">
+    <div class="log-header">
+      <h2>Tu bitácora</h2>
+    </div>
+
+    <form class="add-row" id="addForm">
+      <input id="newTitle" type="text" placeholder="Nueva entrada…" required>
+      <button type="submit">Añadir</button>
+    </form>
+
+    <ul class="entries" id="entriesList"></ul>
+  </section>
+
+  <footer class="note">
+    Demo 100% en el navegador (HTML5 + CSS3 + JS con localStorage).<br>
+    Las contraseñas no viajan a ningún servidor, pero tampoco están cifradas de forma segura — no la uses con datos reales.
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  const USERS_KEY = 'bitacora_users';
+  const SESSION_KEY = 'bitacora_session';
+  const itemsKey = (userId) => `bitacora_items_${userId}`;
+
+  // ---------- Utilidades de "hash" simple (NO seguro, solo demo client-side) ----------
+  function simpleHash(str){
+    let h = 0;
+    for(let i=0;i<str.length;i++){
+      h = (Math.imul(31,h) + str.charCodeAt(i)) | 0;
+    }
+    return 'h' + Math.abs(h).toString(36) + str.length;
+  }
+
+  function getUsers(){
+    return JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+  }
+  function saveUsers(users){
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  }
+  function getSession(){
+    return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
+  }
+  function setSession(user){
+    localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+  }
+  function clearSession(){
+    localStorage.removeItem(SESSION_KEY);
+  }
+  function getItems(userId){
+    return JSON.parse(localStorage.getItem(itemsKey(userId)) || '[]');
+  }
+  function saveItems(userId, items){
+    localStorage.setItem(itemsKey(userId), JSON.stringify(items));
+  }
+
+  // ---------- Referencias DOM ----------
+  const authView = document.getElementById('authView');
+  const appView = document.getElementById('appView');
+  const whoami = document.getElementById('whoami');
+
+  const tabLogin = document.getElementById('tabLogin');
+  const tabRegister = document.getElementById('tabRegister');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const authError = document.getElementById('authError');
+
+  const addForm = document.getElementById('addForm');
+  const newTitle = document.getElementById('newTitle');
+  const entriesList = document.getElementById('entriesList');
+
+  function showError(msg){
+    authError.textContent = msg;
+    authError.classList.add('show');
+  }
+  function clearError(){
+    authError.classList.remove('show');
+    authError.textContent = '';
+  }
+
+  // ---------- Tabs de auth ----------
+  tabLogin.addEventListener('click', () => {
+    tabLogin.classList.add('active');
+    tabRegister.classList.remove('active');
+    loginForm.classList.remove('hidden');
+    registerForm.classList.add('hidden');
+    clearError();
+  });
+  tabRegister.addEventListener('click', () => {
+    tabRegister.classList.add('active');
+    tabLogin.classList.remove('active');
+    registerForm.classList.remove('hidden');
+    loginForm.classList.add('hidden');
+    clearError();
+  });
+
+  // ---------- Registro ----------
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    clearError();
+
+    const name = document.getElementById('regName').value.trim();
+    const email = document.getElementById('regEmail').value.trim().toLowerCase();
+    const password = document.getElementById('regPassword').value;
+
+    if(!name || !email || !password){
+      showError('Completa todos los campos.');
+      return;
+    }
+
+    const users = getUsers();
+    if(users.some(u => u.email === email)){
+      showError('Ese correo ya está registrado.');
+      return;
+    }
+
+    const user = {
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
+      name,
+      email,
+      passwordHash: simpleHash(password)
+    };
+    users.push(user);
+    saveUsers(users);
+
+    setSession({ id: user.id, name: user.name, email: user.email });
+    registerForm.reset();
+    renderApp();
+  });
+
+  // ---------- Login ----------
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    clearError();
+
+    const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+    const password = document.getElementById('loginPassword').value;
+
+    const users = getUsers();
+    const user = users.find(u => u.email === email);
+
+    if(!user || user.passwordHash !== simpleHash(password)){
+      showError('Correo o contraseña incorrectos.');
+      return;
+    }
+
+    setSession({ id: user.id, name: user.name, email: user.email });
+    loginForm.reset();
+    renderApp();
+  });
+
+  // ---------- Logout ----------
+  function logout(){
+    clearSession();
+    renderApp();
+  }
+
+  // ---------- CRUD de entradas ----------
+  addForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const session = getSession();
+    if(!session) return;
+
+    const title = newTitle.value.trim();
+    if(!title) return;
+
+    const items = getItems(session.id);
+    items.unshift({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2,5),
+      title,
+      done: false,
+      createdAt: new Date().toISOString()
+    });
+    saveItems(session.id, items);
+    newTitle.value = '';
+    renderEntries();
+  });
+
+  function toggleDone(id){
+    const session = getSession();
+    if(!session) return;
+    const items = getItems(session.id);
+    const idx = items.findIndex(i => i.id === id);
+    if(idx === -1) return;
+    items[idx].done = !items[idx].done;
+    saveItems(session.id, items);
+    renderEntries();
+  }
+
+  function editEntry(id){
+    const session = getSession();
+    if(!session) return;
+    const items = getItems(session.id);
+    const idx = items.findIndex(i => i.id === id);
+    if(idx === -1) return;
+
+    const nuevo = prompt('Editar entrada:', items[idx].title);
+    if(nuevo === null) return;
+    const trimmed = nuevo.trim();
+    if(!trimmed) return;
+
+    items[idx].title = trimmed;
+    saveItems(session.id, items);
+    renderEntries();
+  }
+
+  function deleteEntry(id){
+    const session = getSession();
+    if(!session) return;
+    if(!confirm('¿Eliminar esta entrada?')) return;
+
+    let items = getItems(session.id);
+    items = items.filter(i => i.id !== id);
+    saveItems(session.id, items);
+    renderEntries();
+  }
+
+  function renderEntries(){
+    const session = getSession();
+    if(!session) return;
+    const items = getItems(session.id);
+
+    entriesList.innerHTML = '';
+
+    if(items.length === 0){
+      entriesList.innerHTML = `
+        <li class="empty-state">
+          <strong>Aún no hay entradas</strong>
+          Añade la primera arriba para empezar tu bitácora.
+        </li>`;
+      return;
+    }
+
+    items.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'entry' + (item.done ? ' done' : '');
+
+      const stamp = document.createElement('button');
+      stamp.className = 'stamp';
+      stamp.type = 'button';
+      stamp.title = item.done ? 'Marcar como pendiente' : 'Marcar como hecha';
+      stamp.textContent = item.done ? '✓' : '';
+      stamp.addEventListener('click', () => toggleDone(item.id));
+
+      const body = document.createElement('div');
+      body.className = 'entry-body';
+      const titleEl = document.createElement('div');
+      titleEl.className = 'entry-title';
+      titleEl.textContent = item.title;
+      body.appendChild(titleEl);
+
+      const actions = document.createElement('div');
+      actions.className = 'entry-actions';
+
+      const editBtn = document.createElement('button');
+      editBtn.className = 'icon-btn';
+      editBtn.type = 'button';
+      editBtn.textContent = 'Editar';
+      editBtn.addEventListener('click', () => editEntry(item.id));
+
+      const delBtn = document.createElement('button');
+      delBtn.className = 'icon-btn';
+      delBtn.type = 'button';
+      delBtn.textContent = 'Eliminar';
+      delBtn.addEventListener('click', () => deleteEntry(item.id));
+
+      actions.appendChild(editBtn);
+      actions.appendChild(delBtn);
+
+      li.appendChild(stamp);
+      li.appendChild(body);
+      li.appendChild(actions);
+      entriesList.appendChild(li);
+    });
+  }
+
+  // ---------- Render general ----------
+  function renderApp(){
+    const session = getSession();
+
+    if(session){
+      authView.classList.add('hidden');
+      appView.classList.remove('hidden');
+      whoami.innerHTML = `<span>${session.name}</span><button id="logoutBtn" type="button">Salir</button>`;
+      document.getElementById('logoutBtn').addEventListener('click', logout);
+      renderEntries();
+    } else {
+      appView.classList.add('hidden');
+      authView.classList.remove('hidden');
+      whoami.innerHTML = '';
+    }
+  }
+
+  renderApp();
+})();
+</script>
+</body>
+</html>

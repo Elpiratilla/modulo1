@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Piratilla</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="grid-container">
+            <div class="header">
+                <h2>Piratilla CLOTHING</h2>
+                <img src="logo" alt="Logo" width="200px">
+                <div class="cart-icon">
+                    🛒 <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="products">
+            <div class="product-card">
+                <h3>Clase g</h3>
+                <p>$99</p>
+                <img src="sueter.png" alt="Sueter Clase g" width="150">
+                <button class="add-btn" data-id="1" data-name="Clase g" data-price="99">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card">
+                <h3>Baggys</h3>
+                <p>$120</p>
+                <img src="pantalones.png" alt="Pantalones baggy" width="150" height="130">
+                <button class="add-btn" data-id="2" data-name="Baggys" data-price="120">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card">
+                <h3>Cropped shirt</h3>
+                <p>$60</p>
+                <img src="camisas.jpg" alt="Cropped shirt" width="150">
+                <button class="add-btn" data-id="3" data-name="Cropped shirt" data-price="60">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card">
+                <h3>Sueter de lana</h3>
+                <p>$69</p>
+                <img src="suter_2.jpg" alt="Sueter de lana" width="150">
+                <button class="add-btn" data-id="4" data-name="Sueter de lana" data-price="69">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card">
+                <h3>Camisas</h3>
+                <p>$99</p>
+                <img src="camisacorb.jpg" alt="Camisa megabrosky" width="150">
+                <button class="add-btn" data-id="5" data-name="Camisa megabrosky" data-price="99">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card">
+                <h3>Sueter</h3>
+                <p>$91</p>
+                <img src="suetercafe.jpg" alt="Sueter Brskydosky" width="150">
+                <button class="add-btn" data-id="6" data-name="Sueter Brskydosky" data-price="91">Añadir al carrito</button>
+            </div>
+        </section>
+
+        <section class="cart-container">
+            <h2>Tu carrito</h2>
+            <ul id="cart-items">
+                </ul>
+            <div class="total-section">
+                <strong>Total: $ <span id="total-price">0</span></strong>
+            </div>
+            <br>
+            <button class="add-btn2" id="clear-cart">Vaciar carrito</button>
+        </section>
+        <br>
+        <button class="add-btn3" onclick="volver()">Volver</button>
+    </main>
+    <script src="funciones.js"></script>
+</body>
+</html>
