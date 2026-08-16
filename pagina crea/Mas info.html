@@ -76,21 +76,27 @@
         <section class="contenido">
             <div class="fila">
                 <div class="texto">
-                    <p>
-                        Louis Braille nació en 1809 en Coupvray, Francia.
-                        Desde pequeño perdió la vista debido a un accidente,
-                        situación que lo inspiró a desarrollar un sistema que
-                        permitiera a las personas con discapacidad visual leer y
-                        escribir de manera independiente.
-                    </p>
-                    <br>
-                    <p>
-                        Con apenas quince años creó el sistema Braille,
-                        basado en una celda de seis puntos en relieve.
-                        Gracias a esta innovación, millones de personas
-                        alrededor del mundo han podido acceder a la educación,
-                        la cultura y la comunicación sin depender de otros.
-                    </p>
+                    <div class="contenido-expandible" id="texto-historia">
+                        <p>
+                            Louis Braille nació en 1809 en Coupvray, Francia.
+                            Desde pequeño perdió la vista debido a un accidente,
+                            situación que lo inspiró a desarrollar un sistema que
+                            permitiera a las personas con discapacidad visual leer y
+                            escribir de manera independiente.
+                        </p>
+                        <br>
+                        <p>
+                            Con apenas quince años creó el sistema Braille,
+                            basado en una celda de seis puntos en relieve.
+                            Gracias a esta innovación, millones de personas
+                            alrededor del mundo han podido acceder a la educación,
+                            la cultura y la comunicación sin depender de otros.
+                        </p>
+                    </div>
+                    <button class="btn-vermas" data-target="texto-historia">
+                        <span class="texto-boton">Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
                 <div class="imagen">
                     <img src="image 6.png"alt="Louis Braille">
@@ -252,25 +258,31 @@
         <section class="contenido">
             <div class="fila">
                 <div class="texto">
-                    <p>
-                        El sistema Braille permite que millones de
-                        personas con discapacidad visual tengan acceso
-                        a la educación, la cultura y la información
-                        de forma independiente.
-                    </p>
-                    <br>
-                    <p>
-                        Gracias a este sistema es posible estudiar,
-                        trabajar, leer libros, utilizar tecnología
-                        y desenvolverse con mayor autonomía.
-                    </p>
-                    <ul class="lista">
-                        <li>Favorece la inclusión social.</li>
-                        <li>Facilita el acceso a la educación.</li>
-                        <li>Promueve la independencia.</li>
-                        <li>Mejora las oportunidades laborales.</li>
-                        <li>Permite acceder a libros y documentos.</li>
-                    </ul>
+                    <div class="contenido-expandible" id="texto-importancia">
+                        <p>
+                            El sistema Braille permite que millones de
+                            personas con discapacidad visual tengan acceso
+                            a la educación, la cultura y la información
+                            de forma independiente.
+                        </p>
+                        <br>
+                        <p>
+                            Gracias a este sistema es posible estudiar,
+                            trabajar, leer libros, utilizar tecnología
+                            y desenvolverse con mayor autonomía.
+                        </p>
+                        <ul class="lista">
+                            <li>Favorece la inclusión social.</li>
+                            <li>Facilita el acceso a la educación.</li>
+                            <li>Promueve la independencia.</li>
+                            <li>Mejora las oportunidades laborales.</li>
+                            <li>Permite acceder a libros y documentos.</li>
+                        </ul>
+                    </div>
+                    <button class="btn-vermas" data-target="texto-importancia">
+                        <span class="texto-boton">Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
                 <div class="imagen">
                     <img src="image 8.png"alt="Importancia del Braille">
@@ -332,6 +344,7 @@
             </div>
         </div>
     </footer>
-</script src="estrellas.js"></script>
+<script src="estrellas.js"></script>
+<script src="vermas.js"></script>
 </body>
 </html>

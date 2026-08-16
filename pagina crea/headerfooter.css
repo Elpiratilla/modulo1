@@ -168,3 +168,39 @@ nav i{
         justify-content:center;
     }
 }
+/*====================================
+BOTÓN VER MÁS
+====================================*/
+.contenido-expandible{
+    max-height:150px;
+    overflow:hidden;
+    transition:max-height .4s ease;
+}
+.contenido-expandible.expandido{
+    max-height:2000px;
+}
+.btn-vermas{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:20px;
+    padding:12px 26px;
+    background:#3b82f6;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-family:inherit;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+.btn-vermas:hover{
+    background:#2563eb;
+    transform:translateY(-4px);
+}
+.btn-vermas i{
+    transition:.3s;
+}
+.btn-vermas.activo i{
+    transform:rotate(180deg);
+}

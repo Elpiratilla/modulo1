@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sin Límites | Proyecto</title>
+    <title>Sin Límites | Sobre nosotros</title>
     <link rel="stylesheet" href="proyectocss.css">
     <link rel="stylesheet" href="headerfooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -246,17 +246,23 @@
     <h2 class="titulo">
         Conclusión
     </h2>
-    <p>
-        Nuestro proyecto demuestra que la tecnología puede convertirse en una
-        herramienta fundamental para la inclusión. Mediante el uso del sistema
-        Braille y soluciones digitales, buscamos crear un espacio donde todas
-        las personas puedan aprender, comunicarse y utilizar dispositivos
-        tecnológicos con mayor facilidad.
-        <br><br>
-        "Sin límites - Un mundo conectado" representa el compromiso de crear
-        soluciones accesibles que reduzcan barreras y permitan que la tecnología
-        esté al alcance de todos.
-    </p>
+    <div class="contenido-expandible" id="texto-conclusion">
+        <p>
+            Nuestro proyecto demuestra que la tecnología puede convertirse en una
+            herramienta fundamental para la inclusión. Mediante el uso del sistema
+            Braille y soluciones digitales, buscamos crear un espacio donde todas
+            las personas puedan aprender, comunicarse y utilizar dispositivos
+            tecnológicos con mayor facilidad.
+            <br><br>
+            "Sin límites" representa el compromiso de crear
+            soluciones accesibles que reduzcan barreras y permitan que la tecnología
+            esté al alcance de todos.
+        </p>
+    </div>
+    <button class="btn-vermas" data-target="texto-conclusion">
+        <span class="texto-boton">Ver más</span>
+        <i class="fas fa-chevron-down"></i>
+    </button>
 </section>
     <footer class="footer">
         <div class="contenedor">
@@ -296,6 +302,7 @@
         </div>
     </footer>
 <script src="estrellas.js"></script>
+<script src="vermas.js"></script>
 </main>
 </body>
 </html>
