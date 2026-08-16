@@ -6,13 +6,6 @@
 html{
     scroll-behavior:smooth;
 }
-body{
-    font-family:"Poppins",sans-serif;
-    background:#192335;
-    color:white;
-    overflow-x:hidden;
-    line-height:1.8;
-}
 h1,h2,h3,h4{
     font-weight:600;
 }
@@ -46,18 +39,7 @@ h1,h2,h3,h4{
         opacity:0;
     }
 }
-.header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    background:rgba(24,35,133,.92);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,.15);
-}
+
 .logo{
     display:flex;
     align-items:center;
@@ -201,67 +183,6 @@ h1,h2,h3,h4{
 .explicacion p{
     font-size:19px;
     color:#e5e7eb;
-}
-.footer{
-    background:#030912;
-    padding:60px 0;
-}
-.contenedor{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-.footer-row{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-}
-.footer-links{
-    width:250px;
-}
-.footer-links h4{
-    margin-bottom:20px;
-    padding-bottom:10px;
-    border-bottom:2px solid #00c3ff;
-}
-.footer-links ul{
-    list-style:none;
-}
-.footer-links li{
-    margin-bottom:10px;
-}
-.footer-links a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-.footer-links a:hover{
-    color:#66d1ff;
-    padding-left:5px;
-}
-.social-link{
-    display:flex;
-    gap:12px;
-}
-.social-link a{
-    width:42px;
-    height:42px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#0d1d31;
-    color:white;
-    border-radius:50%;
-    transition:.3s;
-}
-.social-link a:hover{
-    background:#3b82f6;
-    transform:translateY(-5px);
-}
-.footer-copy{
-    text-align:center;
-    margin-top:40px;
-    color:#aaa;
 }
 .alto{
     background:black !important;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sin Límites | Aprende Más</title>
     <link rel="stylesheet" href="aprendemas.css">
+    <link rel="stylesheet" href="headerfooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -23,9 +24,9 @@
                 <i class="fas fa-house"></i>
                 Inicio
             </a>
-            <a href="descubrebraile.html" class="activo"> 
+            <a href="descubrebraile.html" class="activo">
                 <i class="fas fa-eye"></i>
-                Descubre del braille
+                Descubre el Braille
             </a>
             <a href="Mas info.html">
                 <i class="fas fa-book-open"></i>
@@ -33,7 +34,7 @@
             </a>
             <a href="proyecto.html">
                 <i class="fas fa-diagram-project"></i>
-                Proyecto
+                Sobre nosotros
             </a>
             <a href="contactos.html">
                 <i class="fas fa-envelope"></i>
@@ -147,6 +148,7 @@
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="Inicio.html">Inicio</a></li>
+                        <li><a href="descubrebraile.html">Descubre el Braille</a></li>
                         <li><a href="Mas info.html">Historia</a></li>
                         <li><a href="proyecto.html">Proyecto</a></li>
                         <li><a href="contactos.html">Contacto</a></li>
@@ -172,26 +174,11 @@
                 </div>
             </div>
             <div class="footer-copy">
-                © 2026 Sin Límites - Un Mundo Conectado
+                © 2026 Sin Límites
             </div>
         </div>
     </footer>
     </main>
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            const contenedor = document.getElementById("estrellas");
-            for (let i = 0; i < 150; i++) {
-                let estrella = document.createElement("div");
-                estrella.classList.add("estrella");
-                let tamaño = Math.random() * 3 + 1;
-                estrella.style.width = tamaño + "px";
-                estrella.style.height = tamaño + "px";
-                estrella.style.left = Math.random() * 100 + "%";
-                estrella.style.animationDuration = (Math.random() * 6 + 4) + "s";
-                estrella.style.animationDelay = Math.random() * 10 + "s";
-                contenedor.appendChild(estrella);
-            }
-        });
-    </script>
+<script src="estrellas.js"></script>
 </body>
 </html>

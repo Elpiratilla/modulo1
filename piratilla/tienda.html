@@ -3,67 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIENDA DE Piratilla</title>
-    <link rel="stylesheet" href="estilocarrusel.css">
-    <link rel="stylesheet" href="carrusel.css">
+    <title>Piratilla Clothing</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-
     <header>
-        <div class="grid-container">
-            <div class="header">
-                <h2>Piratilla CLOTHING</h2>
-                <img src="" alt="Logo" width="200px">
-                <div class="cart-icon">
-                    🛒 <span id="cart-count">0</span>
-                </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo Piratilla">
+                <h2>Piratilla Clothing</h2>
             </div>
-        </div>
+            <button class="menu-btn" id="menu-btn">
+                ☰
+            </button>
+            <ul class="menu" id="menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            <div class="carrito">
+                🛒 <span id="contador">0</span>
+            </div>
+        </nav>
     </header>
-
+    <section class="slider">
+        <div class="slides">
+            <img src="sueter.png" class="slide activo" alt="Suéter">
+            <img src="pantalones.png" class="slide" alt="Pantalones">
+            <img src="camisas.jpg" class="slide" alt="Camisas">
+            <img src="suter_2.jpg" class="slide" alt="Suéter 2">
+            <img src="camisacorb.jpg" class="slide" alt="Camisa">
+            <img src="suetercafe.jpg" class="slide" alt="Suéter Café">
+        </div>
+        <button class="anterior" onclick="anterior()">❮</button>
+        <button class="siguiente" onclick="siguiente()">❯</button>
+    </section>
     <main>
-        <h1>CARRUSEL DE CLOTHES</h1>
-
-        <section class="slider">
-
-            <div class="slider-nav">
-                <a href="#Imagen1">1</a>
-                <a href="#Imagen2">2</a>
-                <a href="#Imagen3">3</a>
-                <a href="#Imagen4">4</a>
-                <a href="#Imagen5">5</a>
-                <a href="#Imagen6">6</a>
+        <h1>Nuestro Catálogo</h1>
+        <section class="productos">
+            <div class="producto">
+                <img src="sueter.png" alt="">
+                <h3>Suéter Negro</h3>
+                <p>$25.00</p>
+                <button onclick="agregarCarrito()">Agregar al carrito</button>
             </div>
-
-
-            <div class="slides-todo">
-                <div class="slides">
-                    <div id="Imagen1" class="slide-1">
-                        <img src="sueter.png" alt="Imagen 1" width="350">
-                    </div>
-                    <div id="Imagen2" class="slide-2">
-                        <img src="pantalones.png" alt="Imagen 2" width="350" height="600">
-                    </div>
-                    <div id="Imagen3" class="slide-3">
-                        <img src="camisas.jpg" alt="Imagen 3" width="350" height="600">
-                    </div>
-                    <div id="Imagen4" class="slide-4">
-                        <img src="suter_2.jpg" alt="Imagen 4" width="350" height="600">
-                    </div>
-                    <div id="Imagen5" class="slide-5">
-                        <img src="camisacorb.jpg" alt="Imagen 5" width="350">
-                    </div>
-                    <div id="Imagen6" class="slide-6">
-                        <img src="suetercafe.jpg" alt="Imagen 6" width="350" height="600">
-                    </div>
-                </div>
+            <div class="producto">
+                <img src="camisas.jpg" alt="">
+                <h3>Camisa Blanca</h3>
+                <p>$20.00</p>
+                <button onclick="agregarCarrito()">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="pantalones.png" alt="">
+                <h3>Pantalón Cargo</h3>
+                <p>$30.00</p>
+                <button onclick="agregarCarrito()">Agregar al carrito</button>
             </div>
         </section>
-
-        <button class="view-btn" onclick="mirar()">Ver catalogo</button>
     </main>
-
-    <script src="funciones.js"></script>
-    <script src="ver.js"></script>
+    <footer>
+        <p>&copy; 2026 Piratilla Clothing</p>
+    </footer>
+    <script src="funcion.js"></script>
 </body>
 </html>

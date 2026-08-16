@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="formulario" id="login">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" id="loginEmail" placeholder="Correo electrónico">
+            <input type="password" id="loginPassword" placeholder="Contraseña">
+            <button onclick="login()">Ingresar</button>
+            <p>¿No tienes cuenta?
+                <a href="#" onclick="mostrarRegistro()">Regístrate</a>
+            </p>
+        </div>
+        <div class="formulario oculto" id="registro">
+            <h2>Crear Cuenta</h2>
+            <input type="text" id="nombre" placeholder="Nombre completo">
+            <input type="email" id="registroEmail" placeholder="Correo electrónico">
+            <input type="password" id="registroPassword" placeholder="Contraseña">
+            <button onclick="registrar()">Registrarse</button>
+            <p>¿Ya tienes cuenta?
+                <a href="#" onclick="mostrarLogin()">Inicia sesión</a>
+            </p>
+        </div>
+    </div>
+    <script src="funcion.js"></script>
+
+</body>
+</html>
