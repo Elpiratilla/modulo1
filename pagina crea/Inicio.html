@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- fondo de estrellitas animadas, ver estrellas.js -->
     <div class="estrellas" id="estrellas"></div>
     <!--------
-    Header 
+    Header (mismo header que el resto del sitio, ver headerfooter.css)
     ----------->
     <header>
     <div class="logo">
@@ -21,13 +22,17 @@
         </div>
     </div>
     <nav>
-        <a href="Inicio.html">
+        <a href="Inicio.html" class="activo">
             <i class="fas fa-house"></i>
             Inicio
         </a>
+        <a href="descubrebraile.html">
+            <i class="fas fa-eye"></i>
+            Descubre el Braille
+        </a>
         <a href="Mas info.html">
-            <i class="fas fa-circle-info"></i>
-            Información
+            <i class="fas fa-book-open"></i>
+            Historia
         </a>
         <a href="proyecto.html">
             <i class="fas fa-diagram-project"></i>
@@ -37,9 +42,14 @@
             <i class="fas fa-envelope"></i>
             Contacto
         </a>
+        <a href="teclado.html">
+            <i class="fas fa-keyboard"></i>
+            Teclado
+        </a>
     </nav>
-</header>   
+</header>
     <main>
+        <!-- HERO: titulo y bajada de la home -->
         <section class="cabeza">
             <div class="titulo">
                 <h1 class="titulo1">
@@ -50,6 +60,9 @@
                 </p>
             </div>
         </section>
+
+        <!-- INTRO: parrafo de presentacion + imagen + los 2 botones principales
+        (Aprende Braille -> descubrebraile.html, Teclado Braille -> teclado.html) -->
         <section class="contenido">
             <div class="fila">
                 <div class="texto1">
@@ -75,7 +88,9 @@
                     Teclado Braille
                 </a>
             </div>
-        </section>           
+        </section>
+
+        <!-- "¿QUÉ ES EL SISTEMA BRAILLE?": imagen + texto expandible (usa vermas.js) -->
         <section class="cabeza1">
             <div class="titulo">
                 <h2 class="titulo">
@@ -89,6 +104,8 @@
                     <img src="image 4.png" alt="Cómo funciona el Braille">
                 </div>
                 <div class="texto">
+                    <!-- vermas.js le agrega/saca la clase "expandido" a este div cuando
+                    se le da click al boton de abajo -->
                     <div class="contenido-expandible" id="texto-quees">
                         <p class="parrafo2">
                             El Braille es un sistema de lectura y escritura táctil
@@ -109,6 +126,8 @@
                             trabajar y comunicarse de forma independiente.
                         </p>
                     </div>
+                    <!-- data-target tiene que matchear el id del div de arriba, asi
+                    vermas.js sabe cual bloque expandir con este boton -->
                     <button class="btn-vermas" data-target="texto-quees">
                         <span class="texto-boton">Ver más</span>
                         <i class="fas fa-chevron-down"></i>
@@ -116,7 +135,9 @@
                 </div>
             </div>
         </section>
-        <section class="estadisticas">
+
+        <!-- LINEA DE TIEMPO: historia de Louis Braille, año por año.
+        se alternan .izquierda / .derecha para que quede en zigzag (ver css.css) -->
         <section class="timeline">
     <h2 class="titulo">
         Historia del Sistema Braille
@@ -196,6 +217,8 @@
         </div>
     </div>
 </section>
+
+        <!-- CTA final: banner para ir a ver el alfabeto completo -->
         <section class="alfa">
             <div class="fila">
                 <div class="alfabeto">
@@ -217,7 +240,7 @@
         </section>
     </main>
     <!--
-    Footer
+    Footer (igual en todas las paginas)
     -->
     <footer class="footer">
         <div class="contenedor">
@@ -226,6 +249,7 @@
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="Inicio.html">Inicio</a></li>
+                        <li><a href="descubrebraile.html">Descubre el Braille</a></li>
                         <li><a href="Mas info.html">Historia</a></li>
                         <li><a href="proyecto.html">Proyecto</a></li>
                         <li><a href="contactos.html">Contacto</a></li>
@@ -234,6 +258,7 @@
                 <div class="footer-links">
                     <h4>Recursos</h4>
                     <ul>
+                        <!-- estos 4 links son placeholders (#), todavia no llevan a ningun lado -->
                         <li><a href="#">¿Qué es el Braille?</a></li>
                         <li><a href="#">Aprender Braille</a></li>
                         <li><a href="#">Alfabeto Braille</a></li>
@@ -255,6 +280,8 @@
             </div>
         </div>
     </footer>
+    <!-- vermas.js: boton "ver mas/ver menos" de textos largos
+    estrellas.js: genera las estrellitas del fondo -->
     <script src="vermas.js"></script>
     <script src="estrellas.js"></script>
 </body>

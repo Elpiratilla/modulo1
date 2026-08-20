@@ -4,6 +4,8 @@
     box-sizing: border-box;
     list-style: none;
 }
+
+/* titulo grande centrado (se usa en varios <h1 class="titulo">) */
 .titulo{
     color: white;
     font-size: 42px;
@@ -15,6 +17,7 @@
     height: 80px;
 }
 
+/* imagen grande del alfabeto braille completo, centrada */
 .imagen {
     width: 100%;
     display: flex;
@@ -29,6 +32,8 @@
     margin: auto;
     border-radius: 12px;
 }
+
+/* fila generica (texto + contenido al lado, aunque en esta pagina se usa mas como wrapper) */
 .fila{
     display: flex;
     align-items: center;
@@ -37,6 +42,8 @@
     padding: 0 20px;
     margin: auto;
 }
+
+/* franja de fondo oscuro detras del texto explicativo */
 .contenido{
     width: 100%;
     font-size: 16px;
@@ -44,6 +51,8 @@
     padding: 15px 0;
     background-color: rgba(13, 29, 49, 0.9);
 }
+
+/* parrafo largo explicando como funciona el sistema braille */
 .parrafo{
     font-size: 20px;
     display: block;
@@ -54,6 +63,8 @@
     hyphens: auto;
     margin: auto;
 }
+
+/* las listas 1-2-3 / 4-5-6 que muestran la numeracion de los puntos de la celda */
 .lista{
     text-align: center;
     display: grid;
@@ -68,6 +79,10 @@
 .posicion{
     text-align: center;
 }
+
+/*====================================
+ESTRELLAS (mismo efecto de fondo que en el resto del sitio)
+====================================*/
 .estrellas {
     position: fixed;
     top: 0;
