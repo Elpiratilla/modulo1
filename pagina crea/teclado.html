@@ -8,7 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="headerfooter.css">
 <link rel="stylesheet" href="newteclado.css">
+<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="comentarios.css">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- auth.js va en el head y se ejecuta de inmediato: si no hay
+    sesión, manda a login.html antes de que se llegue a pintar
+    el resto de la página -->
+<script src="auth.js"></script>
+<script>
+  protegerPagina();
+</script>
 </head>
 <body>
 
@@ -23,6 +33,9 @@
         <h1>Sin Límites</h1>
       </div>
     </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
     <nav>
       <a href="Inicio.html">
         <i class="fas fa-house"></i>
@@ -50,6 +63,8 @@
         Teclado
       </a>
     </nav>
+    <!-- auth.js llena esto con el saludo + botón de cerrar sesión -->
+    <div id="authHeaderSlot"></div>
   </header>
 
   <!-- TECLADO: teclado.js arma cada tecla dentro de #keyboard en tiempo real,
@@ -67,7 +82,7 @@
 
   <!-- LOG: va mostrando cada tecla que se presiona, lo actualiza teclado.js -->
   <div class="logbar" id="logbar">
-    <span class="dim">// aquí aparece cada tecla que presionas…</span>
+    <span class="dim"></span>
   </div>
 
   <!-- PANEL DE LA FRASE: donde se arma el texto en braille y los controles para editarlo/leerlo -->
@@ -97,6 +112,24 @@
         Mostrar letra debajo del símbolo
       </label>
     </div>
+  </div>
+
+  <!-- ZONA DE COMENTARIOS: requiere estar con una cuenta para poder comentar -->
+  <div class="comentarios-panel">
+    <h2>Comentarios</h2>
+    <p class="sub">Contanos qué te pareció el teclado. Necesitás una cuenta para comentar.</p>
+
+    <div class="comentarios-bloqueado" id="comentariosBloqueado" style="display:none;">
+      <i class="fas fa-lock"></i>
+      <span>Tenés que <a href="login.html">iniciar sesión</a> o <a href="registro.html">crear una cuenta</a> para dejar un comentario.</span>
+    </div>
+
+    <form class="form-comentario" id="formComentario" style="display:none;">
+      <textarea id="textoComentario" placeholder="Escribí tu comentario..." required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Comentar</button>
+    </form>
+
+    <div class="lista-comentarios" id="listaComentarios"></div>
   </div>
 
   <!-- FOOTER: igual en todas las paginas (Navegación / Recursos / Síguenos + copyright) -->
@@ -142,5 +175,15 @@
 estrellas.js solo genera las estrellitas del fondo -->
   <script src="teclado.js"></script>
   <script src="estrellas.js"></script>
+  <script src="menu.js"></script>
+
+  <!-- comentarios.js maneja la zona de comentarios (requiere sesión) -->
+  <script src="comentarios.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      pintarUsuarioHeader();
+      iniciarZonaComentarios("teclado");
+    });
+  </script>
 </body>
 </html>

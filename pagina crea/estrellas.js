@@ -15,3 +15,4 @@
             contenedor.appendChild(estrella);
         }
     });
+    

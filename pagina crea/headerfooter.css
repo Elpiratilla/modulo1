@@ -157,14 +157,36 @@ nav a.activo{
 nav i{
     font-size:16px;
 }
-@media (max-width:900px){
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+    padding:8px;
+    z-index:1001;
+}
+@media (max-width:1200px){
     header{
-        flex-direction:column;
-        gap:20px;
-        padding:20px;
+        flex-wrap:wrap;
+        padding:15px 20px;
+    }
+    .menu-toggle{
+        display:block;
     }
     nav{
-        flex-wrap:wrap;
+        display:none;
+        width:100%;
+        flex-direction:column;
+        gap:10px;
+        margin-top:15px;
+    }
+    nav.abierto{
+        display:flex;
+    }
+    nav a{
+        width:100%;
         justify-content:center;
     }
 }
