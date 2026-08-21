@@ -13,8 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- auth.js va en el head y se ejecuta de inmediato: si no hay
-    sesión, manda a login.html antes de que se llegue a pintar
-    el resto de la página -->
+     sesión, manda a login.html antes de que se llegue a pintar
+     el resto de la página -->
 <script src="auth.js"></script>
 <script>
   protegerPagina();
@@ -97,7 +97,7 @@
       <button class="btn" id="addBtn">+ Agregar espacio</button>
       <button class="btn secondary" id="delBtn">Borrar</button>
       <button class="btn secondary" id="clrBtn">Limpiar</button>
-      <button class="btn read" id="readBtn">Leer frase</button>
+      <!-- <button class="btn read" id="readBtn">Leer frase</button> -->
       <button class="btn contrast" id="contrastBtn">Alto contraste</button>
     </div>
 
@@ -128,6 +128,12 @@
       <textarea id="textoComentario" placeholder="Escribí tu comentario..." required></textarea>
       <button type="submit"><i class="fas fa-paper-plane"></i> Comentar</button>
     </form>
+    <p class="preview-braille" id="previewBraille"></p>
+
+    <label class="comentarios-toggle">
+      <input type="checkbox" id="toggleTextoPlano">
+      Mostrar también el texto en tinta debajo de cada comentario
+    </label>
 
     <div class="lista-comentarios" id="listaComentarios"></div>
   </div>
@@ -178,11 +184,20 @@ estrellas.js solo genera las estrellitas del fondo -->
   <script src="menu.js"></script>
 
   <!-- comentarios.js maneja la zona de comentarios (requiere sesión) -->
-  <script src="comentarios.js"></script>
+  <script src="comentario.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      pintarUsuarioHeader();
-      iniciarZonaComentarios("teclado");
+      try{
+        pintarUsuarioHeader();
+      }catch(err){
+        console.error("Error en pintarUsuarioHeader:", err);
+      }
+
+      try{
+        iniciarZonaComentarios("teclado");
+      }catch(err){
+        console.error("Error en iniciarZonaComentarios:", err);
+      }
     });
   </script>
 </body>

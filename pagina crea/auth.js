@@ -22,13 +22,34 @@ function guardarUsuarios(usuarios){
 }
 
 // hash simple con SubtleCrypto (SHA-256) para no guardar la
-// contraseña en texto plano dentro del localStorage
+// contraseña en texto plano dentro del localStorage.
+// crypto.subtle solo existe en "contextos seguros" (https:// o
+// localhost). Si el sitio se abre directo con file://, no está
+// disponible: en ese caso usamos un hash de respaldo más simple
+// para que el login/registro no se rompa igual.
 async function hashPassword(password){
-  const enc = new TextEncoder().encode(password);
-  const buffer = await crypto.subtle.digest("SHA-256", enc);
-  return Array.from(new Uint8Array(buffer))
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
+  if(window.crypto && window.crypto.subtle){
+    try{
+      const enc = new TextEncoder().encode(password);
+      const buffer = await crypto.subtle.digest("SHA-256", enc);
+      return Array.from(new Uint8Array(buffer))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+    }catch(e){
+      console.warn("crypto.subtle falló, uso hash de respaldo:", e);
+    }
+  }
+  return hashPasswordRespaldo(password);
+}
+
+// hash de respaldo (NO criptográfico, solo para que funcione sin
+// contexto seguro). No usar esto tal cual en un sitio real en producción.
+function hashPasswordRespaldo(password){
+  let hash = 0;
+  for(let i = 0; i < password.length; i++){
+    hash = ((hash << 5) - hash + password.charCodeAt(i)) | 0;
+  }
+  return "fallback_" + Math.abs(hash).toString(16);
 }
 
 function emailValido(email){
