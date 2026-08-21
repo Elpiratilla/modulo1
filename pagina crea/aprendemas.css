@@ -84,6 +84,20 @@ HERO
     max-width:600px;
 }
 
+/* etiqueta chica arriba del h1 del hero */
+.hero-tag{
+    display:inline-block;
+    background:rgba(59,130,246,.15);
+    color:#8ec4ff;
+    padding:6px 16px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+    margin-bottom:18px;
+    border:1px solid rgba(59,130,246,.3);
+}
+
 
 .hero-texto h1{
     font-size:48px;
@@ -99,8 +113,13 @@ HERO
 }
 
 
+.hero-imagen{
+    flex-shrink:0;
+}
+
 .hero-imagen img{
     width:400px;
+    max-width:100%;
     border-radius:25px;
     box-shadow:0 20px 40px rgba(0,0,0,.4);
 }
@@ -114,6 +133,7 @@ BOTONES
     margin-top:35px;
     display:flex;
     gap:20px;
+    flex-wrap:wrap;
 }
 
 
@@ -123,6 +143,9 @@ BOTONES
     text-decoration:none;
     color:white;
     transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
 }
 
 
@@ -179,9 +202,78 @@ CONTENIDO
 }
 
 
+.imagen{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
 .imagen img{
     width:380px;
+    max-width:100%;
     border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+
+/*====================================
+DATOS / ESTADISTICAS
+====================================*/
+
+.estadisticas{
+    padding:70px 10%;
+    background:#0d1d31;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:40px;
+    text-align:center;
+}
+
+.estadistica{
+    flex:1;
+    min-width:170px;
+}
+
+.estadistica i{
+    font-size:30px;
+    color:#3b82f6;
+    margin-bottom:14px;
+    display:block;
+}
+
+.estadistica h3{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.estadistica p{
+    color:#c9d3e0;
+    font-size:15px;
+}
+
+
+/*====================================
+ICONOS EN CIRCULO (cards y beneficios)
+====================================*/
+
+.icono-circulo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:rgba(59,130,246,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.card .icono-circulo{
+    margin:0 auto 20px;
+}
+
+.card .icono-circulo i{
+    margin-bottom:0;
 }
 
 
@@ -194,6 +286,7 @@ CARDS
     display:flex;
     justify-content:center;
     gap:30px;
+    flex-wrap:wrap;
 }
 
 
@@ -210,11 +303,12 @@ CARDS
 
 .card:hover{
     transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(59,130,246,.3);
 }
 
 
 .card i{
-    font-size:40px;
+    font-size:26px;
     color:#3b82f6;
     margin-bottom:20px;
 }
@@ -228,6 +322,39 @@ CARDS
 
 .card p{
     color:#ddd;
+}
+
+
+/*====================================
+CITA
+====================================*/
+
+.cita{
+    padding:90px 15%;
+    text-align:center;
+}
+
+.cita i{
+    font-size:28px;
+    color:#3b82f6;
+    opacity:.6;
+    margin-bottom:20px;
+    display:block;
+}
+
+.cita blockquote{
+    font-size:26px;
+    font-style:italic;
+    max-width:800px;
+    margin:0 auto 20px;
+    line-height:1.5;
+    color:#f1f5f9;
+}
+
+.cita cite{
+    color:#8ea3c7;
+    font-size:15px;
+    font-style:normal;
 }
 
 
@@ -249,8 +376,15 @@ BENEFICIOS
 
 
 .lista-beneficios{
-    max-width:900px;
+    max-width:950px;
     margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.lista-beneficios .beneficio:last-child{
+    grid-column:1 / -1;
 }
 
 
@@ -259,20 +393,53 @@ BENEFICIOS
     align-items:center;
     gap:20px;
     padding:20px;
-    margin-bottom:15px;
     background:#192335;
     border-radius:15px;
+    transition:.3s;
+}
+
+.beneficio:hover{
+    transform:translateY(-4px);
 }
 
 
 .beneficio i{
     color:#3b82f6;
-    font-size:25px;
+    font-size:22px;
 }
 
 
 .beneficio p{
-    font-size:18px;
+    font-size:17px;
+    color:#f1f5f9;
+}
+
+
+/*====================================
+CTA FINAL
+====================================*/
+
+.cta-final{
+    padding:90px 10%;
+    text-align:center;
+    background:linear-gradient(135deg, rgba(59,130,246,.15), rgba(13,29,49,.95));
+    border-top:1px solid rgba(59,130,246,.2);
+}
+
+.cta-final h2{
+    font-size:36px;
+    margin-bottom:16px;
+}
+
+.cta-final p{
+    color:#e5e7eb;
+    font-size:17px;
+    max-width:600px;
+    margin:0 auto 30px;
+}
+
+.cta-final .hero-botones{
+    justify-content:center;
 }
 
 
@@ -295,6 +462,30 @@ CONCLUSION
 .conclusion p{
     font-size:19px;
     color:#e5e7eb;
+}
+
+
+/*====================================
+ANIMACION FADE-IN AL SCROLLEAR
+====================================*/
+
+.fade-in{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.fade-in.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+    .fade-in{
+        transition:none;
+        opacity:1;
+        transform:none;
+    }
 }
 
 
@@ -330,6 +521,18 @@ RESPONSIVE
 
     .card{
         width:90%;
+    }
+
+    .lista-beneficios{
+        grid-template-columns:1fr;
+    }
+
+    .estadisticas{
+        gap:30px;
+    }
+
+    .cita blockquote{
+        font-size:21px;
     }
 
 }

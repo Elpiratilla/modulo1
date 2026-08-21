@@ -282,6 +282,7 @@ LOG DE TECLAS PRESIONADAS
 ====================================*/
 /* la franja angosta debajo del teclado que va mostrando cada tecla presionada */
 .logbar {
+  display: none; /* se pidió sacar la barra verde del historial de teclas */
   margin-top: 16px;
   background: #05070f;
   border: 1px solid var(--border);
