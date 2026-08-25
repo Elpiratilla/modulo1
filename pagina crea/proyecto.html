@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sin Límites | Sobre nosotros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="proyectocss.css">
     <link rel="stylesheet" href="headerfooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -55,6 +58,7 @@
     
 <section class="hero">
     <div class="hero-texto">
+        <span class="kicker"><span class="celda"><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i><i></i><i class="apagado"></i></span>Sin Límites</span>
         <h1>Proyecto Braille</h1>
         <p>
             Nuestro proyecto busca acercar la tecnología a las personas con
@@ -81,6 +85,7 @@
 <section class="contenido" id="proyecto">
     <div class="fila">
         <div class="texto">
+            <span class="kicker"><span class="celda"><i></i><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i></span>El proyecto</span>
             <h2>¿En qué consiste nuestro proyecto?</h2>
             <p>
                 El proyecto consiste en el desarrollo de un teclado físico
@@ -95,7 +100,12 @@
         </div>
     </div>
 </section>
-<section class="cards">
+<section class="cards-envoltorio">
+    <div class="cabeza">
+        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i class="apagado"></i><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i></span>Tres pilares</span>
+        <h2 class="titulo" style="font-size:36px;">Lo que sostiene el proyecto</h2>
+    </div>
+    <div class="cards">
     <div class="card">
         <i class="fas fa-bullseye"></i>
         <h3>Objetivo</h3>
@@ -123,11 +133,13 @@
             todos.
         </p>
     </div>
+    </div>
 </section>
 <section class="funciona">
-    <h2 class="titulo">
-        ¿Cómo funciona?
-    </h2>
+    <div class="cabeza">
+        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i class="apagado"></i><i class="apagado"></i><i></i><i class="apagado"></i><i></i></span>El recorrido de una letra</span>
+        <h2 class="titulo">¿Cómo funciona?</h2>
+    </div>
     <div class="pasos">
         <div class="paso">
             <div class="numero">1</div>
@@ -168,9 +180,10 @@
     </div>
 </section>
 <section class="estadisticas">
-    <h2 class="titulo">
-        Nuestro impacto
-    </h2>
+    <div class="cabeza">
+        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i></i><i class="apagado"></i><i class="apagado"></i><i></i><i class="apagado"></i></span>En números</span>
+        <h2 class="titulo">Nuestro impacto</h2>
+    </div>
     <div class="contenedor-estadisticas">
         <div class="estadistica">
             <i class="fas fa-universal-access"></i>
@@ -203,9 +216,10 @@
     </div>
 </section>
 <section class="beneficios">
-    <h2 class="titulo">
-        Beneficios del proyecto
-    </h2>
+    <div class="cabeza">
+        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i class="apagado"></i><i></i><i></i><i class="apagado"></i><i class="apagado"></i></span>Por qué importa</span>
+        <h2 class="titulo">Beneficios del proyecto</h2>
+    </div>
     <div class="lista-beneficios">
         <div class="beneficio">
             <i class="fas fa-eye"></i>
@@ -249,6 +263,51 @@
         </div>
     </div>
 </section>
+
+<section class="faq">
+    <div class="cabeza">
+        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i></span>Preguntas frecuentes</span>
+        <h2 class="titulo" style="font-size:36px;">Antes de que preguntes</h2>
+    </div>
+    <div class="lista-faq">
+        <div class="pregunta">
+            <button class="pregunta-btn">
+                ¿Necesito saber Braille para usar el teclado?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="pregunta-respuesta">
+                <p>No es obligatorio. El teclado y las guías del sitio están pensados para que cualquier persona aprenda la correspondencia entre combinaciones y letras mientras lo usa.</p>
+            </div>
+        </div>
+        <div class="pregunta">
+            <button class="pregunta-btn">
+                ¿Con qué dispositivos funciona?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="pregunta-respuesta">
+                <p>Se conecta como un teclado estándar, por lo que funciona con cualquier computadora o dispositivo que reconozca entrada por teclado.</p>
+            </div>
+        </div>
+        <div class="pregunta">
+            <button class="pregunta-btn">
+                ¿Es un proyecto educativo o un producto terminado?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="pregunta-respuesta">
+                <p>Es un proyecto en desarrollo, nacido en un contexto educativo, enfocado en demostrar que la accesibilidad puede construirse con herramientas sencillas y de bajo costo.</p>
+            </div>
+        </div>
+        <div class="pregunta">
+            <button class="pregunta-btn">
+                ¿Cómo puedo apoyar o saber más?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="pregunta-respuesta">
+                <p>Puedes escribirnos desde la sección de Contacto; nos interesa conocer instituciones, docentes o personas dispuestas a probar el proyecto.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="conclusion">
     <h2 class="titulo">
         Conclusión
@@ -260,10 +319,7 @@
             Braille y soluciones digitales, buscamos crear un espacio donde todas
             las personas puedan aprender, comunicarse y utilizar dispositivos
             tecnológicos con mayor facilidad.
-            <br><br>
-            "Sin límites" representa el compromiso de crear
-            soluciones accesibles que reduzcan barreras y permitan que la tecnología
-            esté al alcance de todos.
+            <span class="destacada">"Sin límites" representa el compromiso de crear soluciones accesibles que reduzcan barreras y permitan que la tecnología esté al alcance de todos.</span>
         </p>
     </div>
     <button class="btn-vermas" data-target="texto-conclusion">
@@ -312,5 +368,6 @@
 <script src="estrellas.js"></script>
 <script src="vermas.js"></script>
     <script src="menu.js"></script>
+    <script src="faq.js"></script>
 </body>
 </html>

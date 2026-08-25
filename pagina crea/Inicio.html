@@ -16,11 +16,14 @@
     ----------->
 <header class="header">
     <div class="logo">
-        <a href="Inicio.html"><img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo"></a>
+        <a href="Inicio.html"><img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo Sin Límites"></a>
         <div class="logo-texto"><h1>Sin Límites</h1></div>
     </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+    </button>
     <nav class="menu">
-        <a href="Inicio.html"><i class="fas fa-house"></i> Inicio</a>
+        <a href="Inicio.html" class="activo"><i class="fas fa-house"></i> Inicio</a>
         <a href="descubrebraile.html"><i class="fas fa-eye"></i> Descubre el Braille</a>
         <a href="Mas info.html"><i class="fas fa-book-open"></i> Historia</a>
         <a href="proyecto.html"><i class="fas fa-diagram-project"></i> Sobre nosotros</a>
@@ -29,19 +32,35 @@
     </nav>
 </header>
     <main>
-        <!-- HERO: titulo y bajada de la home -->
+        <!-- HERO: pieza central de la home. A la izquierda titulo + CTA,
+        a la derecha 4 celdas braille reales que se van iluminando y
+        deletrean "HOLA" en loop (ver .celda-braille en css.css) -->
         <section class="cabeza">
-            <div class="titulo">
-                <h1 class="titulo1">
-                    Aprende Braille y promueve la accesibilidad
-                </h1>
-                <p class="subtitulo">
-                    Descubre el sistema Braille, aprende su historia y practica de forma interactiva.
-                </p>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="hero-tag">
+                        <i class="fas fa-hands"></i>
+                        Accesibilidad e inclusión
+                    </span>
+                    <h1 class="titulo1">
+                        Aprende <span class="resaltado">Braille</span> y promueve la accesibilidad
+                    </h1>
+                    <p class="subtitulo">
+                        Descubre el sistema Braille, aprende su historia y practica de forma interactiva.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="descubrebraile.html" class="btn">
+                            Aprende Braille
+                        </a>
+                        <a href="Login.html" class="btn btn-secundario">
+                            Teclado Braille
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- INTRO: parrafo de presentacion + imagen + los 2 botones principales
+        <!-- INTRO: parrafo de presentacion + imagen + mini-stats + los 2 botones principales
         (Aprende Braille -> descubrebraile.html, Teclado Braille -> teclado.html) -->
         <section class="contenido">
             <div class="fila">
@@ -55,18 +74,26 @@
                     <p class="parrafo1">
                         En esta página encontrarás recursos, información, ejercicios y herramientas para aprender Braille de una manera sencilla.
                     </p>
+                    <div class="mini-stats">
+                        <div class="mini-stat">
+                            <strong>200</strong>
+                            <span>años de historia</span>
+                        </div>
+                        <div class="mini-stat">
+                            <strong>100+</strong>
+                            <span>países lo utilizan</span>
+                        </div>
+                        <div class="mini-stat">
+                            <strong>Millones</strong>
+                            <span>de personas beneficiadas</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="imagen1">
                     <img src="image 3.png" alt="Sistema Braille">
                 </div>
             </div>
             <div class="botones">
-                <a href="descubrebraile.html" class="btn">
-                    Aprende Braille
-                </a>
-                <a href="Login.html" class="btn btn-secundario">
-                    Teclado Braille
-                </a>
             </div>
         </section>
 
@@ -198,24 +225,32 @@
     </div>
 </section>
 
-        <!-- CTA final: banner para ir a ver el alfabeto completo -->
-        <section class="alfa">
-            <div class="fila">
-                <div class="alfabeto">
-                    <h2>
-                        Aprende el Alfabeto Braille
-                    </h2>
-                    <br>
-                    <p>
-                        Descubre cómo se representan
-                        todas las letras del alfabeto
-                        utilizando puntos en relieve.
-                    </p>
-                    <br>
-                    <a href="alfabeto.html" class="btn">
-                        Ver Alfabeto
-                    </a>
-                </div>
+        <!-- TESTIMONIO: seccion nueva, corta el ritmo entre la timeline y el CTA final -->
+        <section class="testimonio">
+            <i class="fas fa-quote-left"></i>
+            <blockquote>
+                Descubrir el sistema Braille me abrió los ojos a un mundo de
+                independencia que no conocía. Hoy leo, estudio y trabajo sin
+                depender de nadie más.
+            </blockquote>
+            <cite>Testimonio de un usuario del sistema Braille</cite>
+        </section>
+        <section class="cta-final">
+            <h2>¿Querés ver el alfabeto en acción?</h2>
+            <p>
+                Ahora que conocés la historia del Braille, descubrí cómo se
+                forman las letras o conocé el proyecto del teclado que estamos
+                desarrollando.
+            </p>
+            <div class="cta-botones">
+                <a href="alfabeto.html" class="btn">
+                    <i class="fas fa-book"></i>
+                    Ver Alfabeto
+                </a>
+                <a href="proyecto.html" class="btn btn-secundario">
+                    <i class="fas fa-diagram-project"></i>
+                    Conocer el proyecto
+                </a>
             </div>
         </section>
     </main>

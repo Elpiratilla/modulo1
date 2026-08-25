@@ -103,6 +103,9 @@
     font-weight:600;
     transition:.35s;
     box-shadow:0 10px 25px rgba(0,0,0,.25);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
 }
 
 .btn:hover{
@@ -158,10 +161,22 @@
     background:#2c4675;
 }
 
+/* circulo de fondo detras del icono, en vez de icono suelto */
+.card .icono{
+    width:80px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(77,166,255,.12);
+    border-radius:50%;
+    margin:0 auto 20px;
+}
+
 .card i{
-    font-size:42px;
+    font-size:32px;
     color:#4da6ff;
-    margin-bottom:20px;
+    margin-bottom:0;
 }
 
 .card h3{
@@ -253,6 +268,85 @@
     }
 
 }
+
+
+/*====================================
+TESTIMONIO
+====================================*/
+
+.testimonio{
+    max-width:900px;
+    margin:80px auto;
+    padding:70px 40px;
+    background:#13233d;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.testimonio i{
+    font-size:32px;
+    color:#3b82f6;
+    opacity:.6;
+    margin-bottom:20px;
+}
+
+.testimonio blockquote{
+    font-size:23px;
+    font-style:italic;
+    color:#f1f5f9;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+.testimonio cite{
+    display:block;
+    font-style:normal;
+    color:#8ea3c7;
+    font-size:14px;
+}
+
+
+/*====================================
+CTA FINAL
+====================================*/
+
+.cta-final{
+    max-width:1000px;
+    margin:20px auto 90px;
+    background:linear-gradient(135deg, rgba(59,130,246,.18), rgba(13,29,49,.9));
+    border:1px solid rgba(59,130,246,.35);
+    border-radius:25px;
+    padding:70px 60px;
+    text-align:center;
+}
+
+.cta-final h2{
+    font-size:32px;
+    margin-bottom:15px;
+    color:white;
+}
+
+.cta-final p{
+    color:#e5e7eb;
+    max-width:600px;
+    margin:0 auto 30px;
+    font-size:17px;
+}
+
+.cta-botones{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.cta-botones .btn-secundario{
+    background:transparent;
+    color:white;
+    border:2px solid white;
+}
+
+
 @media (max-width:900px){
     .fila{
         flex-direction:column;
@@ -286,6 +380,13 @@
     .social-link{
         justify-content:center;
     }
+    .cta-botones{
+        flex-direction:column;
+    }
+    .cta-final{
+        padding:50px 25px;
+        margin:20px 5% 60px;
+    }
 }
 
 @media (max-width:600px){
@@ -295,6 +396,14 @@
     .btn{
         width:100%;
         text-align:center;
+        justify-content:center;
+    }
+    .testimonio{
+        padding:45px 25px;
+        margin:60px 5%;
+    }
+    .testimonio blockquote{
+        font-size:19px;
     }
 }
 /* HERO */
@@ -314,6 +423,23 @@
 
 .hero-texto{
     flex:1;
+}
+
+/* etiqueta pequeña arriba del titulo del hero */
+.hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(59,130,246,.12);
+    border:1px solid rgba(59,130,246,.4);
+    color:#7cb0ff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    padding:8px 16px;
+    border-radius:30px;
+    margin-bottom:22px;
 }
 
 .hero-texto h1{
@@ -338,11 +464,6 @@
     flex:1;
     display:flex;
     justify-content:center;
+    position:relative;
 }
 
-.hero-imagen img{
-    width:420px;
-    max-width:100%;
-    border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,.45);
-}
