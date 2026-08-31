@@ -1,5 +1,5 @@
 /* ---------- mapa braille (patrones estándar grado 1) ----------
-   cada letra tiene un array con los puntos de la celda braille que va "levantados",
+    cada letra tiene un array con los puntos de la celda braille que va "levantados",
    numerados del 1 al 6 como en el sistema real (2 columnas x 3 filas) */
 const BRAILLE = {
     a:[1],b:[1,2],c:[1,4],d:[1,4,5],e:[1,5],f:[1,2,4],g:[1,2,4,5],h:[1,2,5],i:[2,4],j:[2,4,5],
